@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Krishisalah - Resources</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            color: #333;
+            min-height: 100vh;
+        }
+
+        .navbar {
+            background: linear-gradient(135deg, #2c3e50, #1a2530);
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            color: white;
+            text-decoration: none;
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .logo i {
+            margin-right: 0.5rem;
+            color: #4ecdc4;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-link {
+            color: #ecf0f1;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            color: #4ecdc4;
+        }
+
+        .nav-auth {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .user-profile {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #ecf0f1;
+        }
+
+        .user-avatar {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: #4ecdc4;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .page-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .page-title {
+            font-size: 2.5rem;
+            color: #2c3e50;
+            margin-bottom: 1rem;
+        }
+
+        .page-subtitle {
+            color: #7f8c8d;
+            font-size: 1.1rem;
+        }
+
+        .resources-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .resource-card {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .resource-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .card-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1rem;
+            font-size: 1.5rem;
+            color: white;
+        }
+
+        .card-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #2c3e50;
+        }
+
+        .resource-list {
+            list-style: none;
+        }
+
+        .resource-list li {
+            padding: 0.75rem 0;
+            border-bottom: 1px solid #ecf0f1;
+            display: flex;
+            align-items: center;
+        }
+
+        .resource-list li:last-child {
+            border-bottom: none;
+        }
+
+        .resource-link {
+            color: #4ecdc4;
+            text-decoration: none;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .resource-link:hover {
+            color: #2c3e50;
+        }
+
+        .guide-section {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+        }
+
+        .guide-title {
+            font-size: 1.5rem;
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .guide-content {
+            color: #7f8c8d;
+            line-height: 1.6;
+        }
+
+        .guide-steps {
+            margin-top: 1rem;
+        }
+
+        .guide-steps ol {
+            margin-left: 1.5rem;
+        }
+
+        .guide-steps li {
+            margin-bottom: 0.5rem;
+            color: #2c3e50;
+        }
+
+        @media (max-width: 768px) {
+            .resources-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .nav-menu {
+                display: none;
+            }
+            
+            .container {
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="/" class="logo">
+                <i class="fas fa-seedling"></i>
+                Krishisalah
+            </a>
+            
+            <ul class="nav-menu">
+                <li><a href="/dashboard" class="nav-link">Dashboard</a></li>
+                <li><a href="/market" class="nav-link">Market Analysis</a></li>
+                <li><a href="/analytics" class="nav-link">Analytics</a></li>
+                <li><a href="/reports" class="nav-link">Reports</a></li>
+                <li><a href="/resources" class="nav-link active">Resources</a></li>
+                <li><a href="/status" class="nav-link">Status</a></li>
+            </ul>
+            
+            <div class="nav-auth">
+                <div class="user-profile">
+                    <div class="user-avatar" id="user-avatar">FA</div>
+                    <span id="user-name">Farmer</span>
+                </div>
+                <a href="#" id="logout-btn" class="nav-link">Logout</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="page-header">
+            <h1 class="page-title">Farming Resources</h1>
+            <p class="page-subtitle">Comprehensive guides, tools, and resources for modern farming</p>
+        </div>
+
+        <div class="resources-grid">
+            <!-- Farming Guides -->
+            <div class="resource-card">
+                <div class="card-header">
+                    <div class="card-icon" style="background: linear-gradient(135deg, #74b9ff, #0984e3);">
+                        <i class="fas fa-book"></i>
+                    </div>
+                    <h3 class="card-title">Farming Guides</h3>
+                </div>
+                <ul class="resource-list">
+                    <li><a href="#" class="resource-link"><i class="fas fa-file-pdf"></i> Crop Rotation Guide</a></li>
+                    <li><a href="#" class="resource-link"><i class="fas fa-file-pdf"></i> Soil Management</a></li>
+                    <li><a href="#" class="resource-link"><i class="fas fa-file-pdf"></i> Pest Control Methods</a></li>
+                    <li><a href="#" class="resource-link"><i class="fas fa-file-pdf"></i> Irrigation Techniques</a></li>
+                    <li><a href="#" class="resource-link"><i class="fas fa-file-pdf"></i> Harvesting Best Practices</a></li>
+                </ul>
+            </div>
+
+            <!-- Market Information -->
+            <div class="resource-card">
+                <div class="card-header">
+                    <div class="card-icon" style="background: linear-gradient(135deg, #00b894, #00a085);">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3 class="card-title">Market Information</h3>
+                </div>
+                <ul class="resource-list">
+                    <li><a href="#" class="resource-link"><i class="fas fa-external-link-alt"></i> Price Trends</a></li>
+                    <li><a href="#" class="resource-link"><i class="fas fa-external-link-alt"></i> Market Analysis</a></li>
+                    <li><a href="#" class="resource-link"><i class="fas fa-external-link-alt"></i> Export Opportunities</a></li>
+                    <li><a href="#" class="resource-link"><i class="fas fa-external-link-alt"></i> Government Schemes</a></li>
+                    <li><a href="#" class="resource-link"><i class="fas fa-external-link-alt"></i> Subsidy Information</a></li>
+                </ul>
+            </div>
+
+            <!-- Technology Tools -->
+            <div class="resource-card">
+                <div class="card-header">
+                    <div class="card-icon" style="background: linear-gradient(135deg, #fdcb6e, #e17055);">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <h3 class="card-title">Technology Tools</h3>
+                </div>
+                <ul class="resource-list">
+                    <li><a href="#" class="resource-link"><i class="fas fa-calculator"></i> Yield Calculator</a></li>
+                    <li><a href="#" class="resource-link"><i class="fas fa-thermometer-half"></i> Weather App</a></li>
+                    <li><a href="#" class="resource-link"><i class="fas fa-seedling"></i> Crop Planner</a></li>
+                    <li><a href="#" class="resource-link"><i class="fas fa-chart-pie"></i> Profit Calculator</a></li>
+                    <li><a href="#" class="resource-link"><i class="fas fa-mobile-alt"></i> Mobile Apps</a></li>
+                </ul>
+            </div>
+
+            <!-- Support & Community -->
+            <div class="resource-card">
+                <div class="card-header">
+                    <div class="card-icon" style="background: linear-gradient(135deg, #fd79a8, #e84393);">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3 class="card-title">Support & Community</h3>
+                </div>
+                <ul class="resource-list">
+                    <li><a href="#" class="resource-link"><i class="fas fa-question-circle"></i> FAQ</a></li>
+                    <li><a href="#" class="resource-link"><i class="fas fa-comments"></i> Discussion Forum</a></li>
+                    <li><a href="#" class="resource-link"><i class="fas fa-phone"></i> Helpline</a></li>
+                    <li><a href="#" class="resource-link"><i class="fas fa-video"></i> Video Tutorials</a></li>
+                    <li><a href="#" class="resource-link"><i class="fas fa-graduation-cap"></i> Training Programs</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Quick Start Guide -->
+        <div class="guide-section">
+            <h2 class="guide-title">
+                <i class="fas fa-rocket"></i>
+                Quick Start Guide
+            </h2>
+            <div class="guide-content">
+                <p>Get started with Krishisalah in just a few simple steps:</p>
+                <div class="guide-steps">
+                    <ol>
+                        <li><strong>Set up your profile:</strong> Enter your farm details, location, and preferences</li>
+                        <li><strong>Choose your crops:</strong> Select the crops you want to grow or analyze</li>
+                        <li><strong>Input soil data:</strong> Enter your soil test results for accurate recommendations</li>
+                        <li><strong>Monitor weather:</strong> Keep track of weather conditions and forecasts</li>
+                        <li><strong>Analyze market:</strong> Check market trends and price predictions</li>
+                        <li><strong>Get recommendations:</strong> Receive AI-powered crop and market suggestions</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+
+        <!-- Best Practices -->
+        <div class="guide-section">
+            <h2 class="guide-title">
+                <i class="fas fa-star"></i>
+                Best Practices
+            </h2>
+            <div class="guide-content">
+                <p>Follow these best practices to maximize your farming success:</p>
+                <div class="guide-steps">
+                    <ol>
+                        <li><strong>Regular soil testing:</strong> Test your soil every 2-3 years to maintain optimal conditions</li>
+                        <li><strong>Crop rotation:</strong> Rotate crops to prevent soil depletion and pest buildup</li>
+                        <li><strong>Water management:</strong> Use efficient irrigation methods and monitor water usage</li>
+                        <li><strong>Market timing:</strong> Plan your harvest timing based on market price trends</li>
+                        <li><strong>Technology adoption:</strong> Use modern farming tools and techniques for better yields</li>
+                        <li><strong>Record keeping:</strong> Maintain detailed records of your farming activities and results</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Check if user is logged in
+        document.addEventListener('DOMContentLoaded', function() {
+            const user = JSON.parse(localStorage.getItem('user'));
+            if (!user) {
+                window.location.href = '/auth';
+                return;
+            }
+            
+            // Update user info
+            if (user && user.name) {
+                document.getElementById('user-name').textContent = user.name;
+                document.getElementById('user-avatar').textContent = user.name.charAt(0).toUpperCase();
+            }
+            
+            // Logout functionality
+            document.getElementById('logout-btn').addEventListener('click', function(e) {
+                e.preventDefault();
+                localStorage.removeItem('user');
+                window.location.href = '/auth';
+            });
+        });
+    </script>
+</body>
+</html>
+
